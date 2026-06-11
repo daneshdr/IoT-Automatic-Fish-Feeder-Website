@@ -1,6 +1,4 @@
 # IoT-Automatic-Fish-Feeder-Website
-Just the website for my "IoT Automatic Barrier System using Arduino Uno" project. Btw I made this for a school competence day. Also here is the website:
-
 This project is an automatic fish feeder system that combines an Arduino Uno–based hardware setup with a supporting website for documentation and presentation. The system is designed to automate the fish feeding process, helping aquarium owners provide food efficiently without constant manual intervention.
 
 At the core of the hardware is an Arduino Uno microcontroller that manages all system operations. An HC-SR04 ultrasonic sensor is used to detect the presence of an object within a predefined distance of 5 cm. When an object enters the detection range, the Arduino processes the sensor data and triggers a 9g servo motor to operate the feeding mechanism.
