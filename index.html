@@ -23,6 +23,7 @@
                 <li><a href="#about">Tentang Sentra</a></li>
                 <li><a href="#project">Proyek</a></li>
                 <li><a href="#media">Media</a></li>
+                <li><a href="#code">Kode Program</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
             <div class="menu-toggle">
@@ -208,6 +209,88 @@
             </div>
         </div>
     </section>
+
+    <!-- ========== KODE PROGRAM ========== -->
+    <section id="code" class="code-section">
+        <div class="container">
+            <h2 class="section-title">Kode Program Arduino</h2>
+            <p class="code-description">Berikut adalah kode program lengkap yang digunakan untuk mengendalikan sistem pemberi pakan ikan otomatis menggunakan Arduino Uno, sensor ultrasonik HC-SR04, dan motor servo.</p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-icon"><i class="fas fa-code"></i></span>
+                    <span class="code-filename">pakan_ikan_otomatis.ino</span>
+                    <span class="code-language">Arduino (C++)</span>
+                </div>
+                <pre><code>#include &lt;Servo.h&gt;
+
+const int trigPin = 9;
+const int echoPin = 10;
+const int servoPin = 6;
+
+Servo myServo;
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  myServo.attach(servoPin);
+  myServo.write(90); // posisi awal servo (tengah)
+  Serial.begin(9600);
+}
+
+int getDistance() {
+  // Kirim pulsa trigger
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Baca durasi echo
+  duration = pulseIn(echoPin, HIGH);
+
+  // Hitung jarak dalam cm
+  int dist = duration * 0.034 / 2;
+  return dist;
+}
+
+void loop() {
+  distance = getDistance();
+
+  Serial.print("Jarak: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance > 0 && distance <= 5) {
+    Serial.println("Objek terdeteksi! Servo berputar...");
+
+    // Putar servo searah jarum jam (0 derajat) selama 1 detik
+    myServo.write(0);
+    delay(1000);
+
+    // Kembalikan ke posisi tengah
+    myServo.write(90);
+    delay(500);
+  }
+
+  delay(100);
+}</code></pre>
+            </div>
+            <div class="code-notes">
+                <p><i class="fas fa-info-circle"></i> <strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><strong>trigPin (D9)</strong> & <strong>echoPin (D10)</strong> : pin untuk sensor ultrasonik.</li>
+                    <li><strong>servoPin (D6)</strong> : pin untuk mengontrol motor servo.</li>
+                    <li><strong>myServo.write(90)</strong> : servo di posisi tengah (palang tertutup).</li>
+                    <li><strong>getDistance()</strong> : fungsi menghitung jarak dalam cm.</li>
+                    <li>Jika jarak ≤ 5 cm, servo berputar ke 0° (membuka) selama 1 detik, lalu kembali ke 90°.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
 
     <!-- ========== KONTAK ========== -->
     <section id="contact" class="contact-section">

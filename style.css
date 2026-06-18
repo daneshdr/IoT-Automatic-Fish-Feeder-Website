@@ -606,3 +606,140 @@ video {
   user-select: none;
   pointer-events: none;
 }
+
+/* ===== KODE PROGRAM SECTION ===== */
+.code-section {
+    background-color: #f0f7ff;
+}
+
+.code-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.code-wrapper {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.code-header {
+    background-color: #2d2d44;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #cdd6f4;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #444466;
+}
+
+.code-icon {
+    color: #89b4fa;
+    font-size: 1.2rem;
+}
+
+.code-filename {
+    font-weight: 600;
+    color: #a6e3a1;
+}
+
+.code-language {
+    margin-left: auto;
+    background-color: #45456a;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #cdd6f4;
+}
+
+.code-wrapper pre {
+    margin: 0;
+    padding: 25px 30px;
+    overflow-x: auto;
+    background: transparent;
+}
+
+.code-wrapper code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #cdd6f4;
+    white-space: pre;
+    tab-size: 2;
+}
+
+/* Warna sintaks sederhana (opsional) */
+.code-wrapper code .comment {
+    color: #6c7086;
+}
+.code-wrapper code .keyword {
+    color: #cba6f7;
+}
+.code-wrapper code .string {
+    color: #a6e3a1;
+}
+.code-wrapper code .number {
+    color: #fab387;
+}
+.code-wrapper code .function {
+    color: #89b4fa;
+}
+.code-wrapper code .variable {
+    color: #f9e2af;
+}
+
+.code-notes {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.code-notes p {
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+.code-notes ul {
+    padding-left: 25px;
+    list-style: none;
+}
+
+.code-notes li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.code-notes li::before {
+    content: "▹";
+    color: #00bcd4;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Responsif untuk kode */
+@media (max-width: 768px) {
+    .code-wrapper pre {
+        padding: 15px 18px;
+    }
+    .code-wrapper code {
+        font-size: 0.8rem;
+    }
+    .code-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .code-language {
+        margin-left: 0;
+    }
+}
