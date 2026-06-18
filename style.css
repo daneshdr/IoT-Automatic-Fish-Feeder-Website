@@ -597,7 +597,6 @@ img {
 
 video {
   -webkit-user-drag: none;
-  user-select: none;
 }
 
 #prodi {
@@ -827,4 +826,3 @@ video {
 .about-content {
     align-items: flex-start;
 }
-
