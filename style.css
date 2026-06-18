@@ -743,3 +743,89 @@ video {
         margin-left: 0;
     }
 }
+
+/* ===== STIKER FOTO 1:1 ===== */
+.sticker-wrapper {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.sticker-wrapper h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.sticker-wrapper h4 i {
+    color: #00bcd4;
+}
+
+.sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.sticker-item {
+    aspect-ratio: 1 / 1; /* Memaksa skala 1:1 */
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sticker-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.sticker-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sticker-caption {
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 4px 0;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Responsif untuk stiker */
+@media (max-width: 768px) {
+    .sticker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sticker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 8px;
+    }
+    .sticker-caption {
+        font-size: 0.6rem;
+        padding: 2px 0;
+    }
+}
+
+.about-content {
+    align-items: flex-start;
+}
+
